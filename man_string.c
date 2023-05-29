@@ -1,37 +1,24 @@
 #include "main.h"
-
-/**
- * _strlen - Returns the length of a string
- * @s: The string to measure
- *
- * Return: The length of the string
- */
-int _strlen(char *s)
+/*************************************************
+ * @ap: argument pointer
+ * init_params - clears struct fields and reset buf
+ * @params: parameters struct
+ * Return: void
+ *************************************************/
+void init_params(params_t *params, va_list ap)
 {
-	int len = 0;
+	params->unsign = 0;
 
-	while (*s++)
-		len++;
+	params->hashtag_f = 0;
+	params->zero_f = 0;
+	params->plus_f = 0;
+	params->minus_f = 0;
+	params->space_f = 0;
 
-	return (len);
-}
+	params->precision = UINT_MAX;
+	params->width = 0;
 
-/**
- * _strrev - Reverses a string
- * @str: The string to reverse
- */
-void _strrev(char *str)
-{
-	int start = 0;
-	int end = _strlen(str) - 1;
-	char temp;
-
-	while (start < end)
-	{
-		temp = *(str + start);
-		*(str + start) = *(str + end);
-		*(str + end) = temp;
-		start++;
-		end--;
-	}
+	params->l_m = 0;
+	params->h_m = 0;
+	(void)ap;
 }
