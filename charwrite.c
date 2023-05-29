@@ -1,10 +1,13 @@
 #include "main.h"
+
 /**
- * _write_character - writes characters
- * @c: character to be printe
- * Return: integer on success
+ * charwrite - Writes a character to the standard output
+ * @c: The character to write
+ * @count: Pointer to the counter of characters printed
+ *
+ * Return: On success, 1. On error, -1.
  */
-int _write_character(char c)
+int charwrite(char c, int *count)
 {
 	return (write(1, &c, 1));
 }
