@@ -6,8 +6,8 @@
  */
 int print_character(va_list list)
 {
-    _write_char(va_arg(list, int));
-    return (1);
+_write_char(va_arg(list, int));
+return (1);
 }
 
 /**
@@ -17,15 +17,15 @@ int print_character(va_list list)
  */
 int print_string(va_list list)
 {
-    int i;
-    char *str;
+int i;
+char *str;
 
-    str = va_arg(list, char *);
-    if (str == NULL)
-        str = "(null)";
-    for (i = 0; str[i] != '\0'; i++)
-        _write_char(str[i]);
-    return (i);
+str = va_arg(list, char *);
+if (str == NULL)
+str = "(null)";
+for (i = 0; str[i] != '\0'; i++)
+_write_char(str[i]);
+return (i);
 }
 
 /**
@@ -35,10 +35,10 @@ int print_string(va_list list)
  */
 int print_percent(__attribute__((unused)) va_list list)
 {
-    _write_char('%');
-    return (1);
+_write_char('%');
+return (1);
 }
-`
+
 /**
  * print_integer - integer
  * @list: arguments
@@ -46,10 +46,10 @@ int print_percent(__attribute__((unused)) va_list list)
  */
 int print_integer(va_list list)
 {
-    int num_length;
+int num_length;
 
-    num_length = print_number(list);
-    return (num_length);
+num_length = print_number(list);
+return (num_length);
 }
 
 /**
@@ -59,15 +59,14 @@ int print_integer(va_list list)
  */
 int print_unsigned_integer(va_list list)
 {
-    unsigned int num;
+unsigned int num;
 
-    num = va_arg(list, unsigned int);
+num = va_arg(list, unsigned int);
 
-    if (num == 0)
-        return (print_unsigned_number(num));
+if (num == 0)
+return (print_unsigned_number(num));
 
-    if (num < 1)
-        return (-1);
-    return (print_unsigned_number(num));
+if (num < 1)
+return (-1);
+return (print_unsigned_number(num));
 }
-

@@ -7,26 +7,26 @@
  */
 char *reverse_string(char *s)
 {
-    int len;
-    int head;
-    char tmp;
-    char *dest;
+int len;
+int head;
+char tmp;
+char *dest;
 
-    for (len = 0; s[len] != '\0'; len++)
-    {}
+for (len = 0; s[len] != '\0'; len++)
+{}
 
-    dest = malloc(sizeof(char) * len + 1);
-    if (dest == NULL)
-        return (NULL);
+dest = malloc(sizeof(char) * len + 1);
+if (dest == NULL)
+return (NULL);
 
-    _memcpy(dest, s, len);
-    for (head = 0; head < len; head++, len--)
-    {
-        tmp = dest[len - 1];
-        dest[len - 1] = dest[head];
-        dest[head] = tmp;
-    }
-    return (dest);
+_memcpy(dest, s, len);
+for (head = 0; head < len; head++, len--)
+{
+tmp = dest[len - 1];
+dest[len - 1] = dest[head];
+dest[head] = tmp;
+}
+return (dest);
 }
 
 /**
@@ -35,10 +35,10 @@ char *reverse_string(char *s)
  */
 void write_base_string(char *str)
 {
-    int i;
+int i;
 
-    for (i = 0; str[i] != '\0'; i++)
-        write_character(str[i]);
+for (i = 0; str[i] != '\0'; i++)
+write_character(str[i]);
 }
 
 /**
@@ -49,13 +49,13 @@ void write_base_string(char *str)
  */
 unsigned int get_base_length(unsigned int num, int base)
 {
-    unsigned int length;
+unsigned int length;
 
-    for (length = 0; num > 0; length++)
-    {
-        num = num / base;
-    }
-    return (length);
+for (length = 0; num > 0; length++)
+{
+num = num / base;
+}
+return (length);
 }
 
 /**
@@ -67,11 +67,10 @@ unsigned int get_base_length(unsigned int num, int base)
  */
 char *_memcpy(char *destination, char *source, unsigned int n)
 {
-    unsigned int i;
+unsigned int i;
 
-    for (i = 0; i < n; i++)
-        destination[i] = source[i];
-    destination[i] = '\0';
-    return (destination);
+for (i = 0; i < n; i++)
+destination[i] = source[i];
+destination[i] = '\0';
+return (destination);
 }
-

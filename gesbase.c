@@ -1,4 +1,8 @@
 #include "main.h"
+
+int _write_char(char c);
+char *rev_string(char *str);
+
 /**
  * print_hexadecimal - prints number
  * @list: arguments
@@ -63,4 +67,3 @@ int hex_check(int num, char x)
 	else
 		return (Hex[num]);
 }
-
