@@ -1,30 +1,30 @@
 .TH man 3 "May 29, 2023" "9.15" "_printf man page"
 .SH NAME
 .B _printf
-- A simple re-creation of the printf function
+- A simplified version of the printf function
 .SH SYNOPSIS
-To use this function the #include "main.h" header is needed.
+To use this function, include the "main.h" header file
 .SH DESCRIPTION
-The _printf() function produces output according to a format which is described
-below. This function write its output to the stdout, the standard output stream.
+The _printf function generates output based on a specified format.
+The output is written to the standard output stream, which is typically the terminal.
 .SH USAGE
 To use _printf you have to use the following key characters preceeded by % symbol.
 .RS 3
-%c: To be used to print characters
+%c: Used to print characters
 .RS 0
-%s: To be used to print strings
+%s: Used to print strings
 .RS 0
-%d: To print integers of max and min size of an int type
+%d: Used to print integers with the maximum and minimum size of an int type
 .RS 0
-%i: To print integers of max and min size of an int type
+%i: Used to print integers with the maximum and minimum size of an int type
 .RS 0
-%b: To print a number in binary form
+%b: Used to print a number in binary form
 .SH RETURN VALUES
-The _printf() function returns an integer representing the number of symbols
-printed not counting \\0 for the string.
+The _printf function returns an integer indicating the number of symbols printed,
+excluding the null terminator (\0) for strings.
 .SH SEE ALSO
 .I printf(3)
 .SH BUGS
 No known bugs.
 .SH AUTHOR
-Chtistabel;Aidoo;and Philipa Aidoo
+Chtistabel Aidoo, and Philipa Aidoo
