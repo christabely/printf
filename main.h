@@ -12,7 +12,7 @@
 #define FIELD_BUF_SIZE 50
 #define NULL_STRING "(null)"
 
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CON_LOWERCASE	1
 #define CON_UNSIGNED	2
