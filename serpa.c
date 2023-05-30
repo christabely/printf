@@ -1,9 +1,9 @@
 #include "main.h"
-/***************************************
- * @z: format string
+/**
  * gs - finds the format of function
- * Return: number of bytes
- ***************************************/
+ * @z:  string
+ * Return: new pointer
+ */
 int (*gs(char *z))(va_list pr, params_t *par)
 {
 specifier_t speci[] = {
@@ -32,16 +32,16 @@ if (*z == speci[u].speci[0])
 {
 return (speci[u].f);
 }
-}	
+}
 return (NULL);
 }
-/****************************************
+/**
  * gpf - finds format function
+ * @z:  string
  * @pr: pointer argument
  * @par: parameters struct
- * @z: the format string
  * Return: number of bytes
- ****************************************/
+ */
 int gpf(char *z, va_list pr, params_t *par)
 {
 	int (*u)(va_list, params_t *) = gs(z);
@@ -50,50 +50,64 @@ int gpf(char *z, va_list pr, params_t *par)
 		return (u(pr, par));
 	return (0);
 }
-/********************************
- * @z: format string
- * @par: parameters struct
+/**
  * gf - finds flag function
+ * @z:  string
+ * @par: parameters struct
  * Return: if flag was valid
- *******************************/
+ */
 int gf(char *z, params_t *par)
 {
 int u = 0;
 
 switch (*z)
 {
-case '-': u = par->minus_f = 1; break;
-case ' ': u = par->space_f = 1; break;
-case '+': u = par->plus_f = 1; break;
-case '0': u = par->zero_f = 1; break;
-case '#': u = par->hashtag_f = 1; break;
-}
-return (u);	
-}
-/*************************************
- * gm - getmodifier function
- * @par: parameters struct
- * @z: the format string
- * Return: if modifier was valid
- ************************************/
-int gm(char *z, params_t *par)
-{
-int u = 0;
-	
-switch (*z)
-{
-case 'h': u = par->h_m = 1; break;
-case 'l': u = par->l_m = 1; break;
+case '-':
+u = par->minus_f = 1;
+break;
+case ' ':
+u = par->space_f = 1;
+break;
+case '+':
+u = par->plus_f = 1;
+break;
+case '0':
+u = par->zero_f = 1;
+break;
+case '#':
+u = par->hashtag_f = 1;
+break;
 }
 return (u);
 }
-/***************************************************
- * @par: parameter struct
+/**
+ * gm - getmodifier function
+ * @z:  string
+ * @par: parameters struct
+ * Return: if modifier was valid
+ */
+int gm(char *z, params_t *par)
+{
+int u = 0;
+
+switch (*z)
+{
+case 'h':
+u = par->h_m = 1;
+break;
+case 'l':
+u = par->l_m = 1;
+break;
+}
+return (u);
+}
+/**
  * gw - gets width from format string
+ * @z:  string
  * @pr: argument pointer
- * @z: format string
+ * @par: parameters struct
  * Return: new pointer
- ***************************************************/
+ */
 char *gw(char *z, params_t *par, va_list pr)
 {
 int u = 0;

@@ -1,10 +1,11 @@
 #include "main.h"
-/*******************************************************
+/**
  * p_h - prints unsigned lowercase hex num
  * @pr: argument pointer
  * @par: parameters struct
  * Return: bytes printed
- *******************************************************/
+ * On error, -1 is returned, and error is set appropriately.
+ */
 int p_h(va_list pr, params_t *par)
 {
 	unsigned long h;
@@ -27,12 +28,12 @@ int p_h(va_list pr, params_t *par)
 	par->unsign = 1;
 	return (c += pn(z, par));
 }
-/************************************************
+/**
  * po - prints unsigned octal num
  * @pr: argument pointer
- * @par: the parameters struct
+ * @par: parameters struct
  * Return: bytes printed
- ************************************************/
+ */
 int po(va_list pr, params_t *par)
 {
 	unsigned long h;
@@ -52,12 +53,12 @@ int po(va_list pr, params_t *par)
 	par->unsign = 1;
 	return (c += pn(z, par));
 }
-/*********************************************************
+/**
+ * p_H - prints unsigned hex numbers in uppercase
  * @pr: argument pointer
  * @par: parameters struct
- * p_H - prints unsigned hex numbers in uppercase
  * Return: bytes printed
- *********************************************************/
+ */
 int p_H(va_list pr, params_t *par)
 {
 	unsigned long h;
@@ -80,12 +81,12 @@ int p_H(va_list pr, params_t *par)
 	par->unsign = 1;
 	return (c += pn(z, par));
 }
-/**********************************************
+/**
  * pb - prints unsigned binary number
- * @pr: the argument pointer
- * @par: the parameters struct
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: bytes printed
- **********************************************/
+ */
 int pb(va_list pr, params_t *par)
 {
 	unsigned int h = va_arg(pr, unsigned int);

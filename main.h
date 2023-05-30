@@ -12,7 +12,7 @@
 #define FIELD_BUF_SIZE 50
 #define NULL_STRING "(null)"
 
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CON_LOWERCASE	1
 #define CON_UNSIGNED	2
@@ -39,26 +39,24 @@ typedef struct parameters
 	unsigned int hashtag_f : 1;
 	unsigned int zero_f : 1;
 	unsigned int minus_f : 1;
-	
+
 	unsigned int w;
 	unsigned int p;
-	unsigned int u;
-	
+
 	unsigned int h_m : 1;
 	unsigned int l_m : 1;
 } params_t;
-/***********************************
+/**
  * struct specifier - Struct token
- * @specifier: format token
+ * @speci: format token
  * @f: The function associated
- **********************************/
+ */
 typedef struct specifier
 {
 	char *speci;
 	int (*f)(va_list, params_t *);
 } specifier_t;
-
-/* function prototypes in decending order*/
+/* function prototypes in decending order */
 char *con(long int b, int bs, int fs, params_t *par);
 int (*gs(char *z))(va_list pr, params_t *par);
 char *gw(char *z, params_t *par, va_list pr);
@@ -92,5 +90,5 @@ int _puts(char *z);
 
 int _st(char *z);
 int _id(int z);
-	
+
 #endif

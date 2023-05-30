@@ -1,11 +1,11 @@
 #include "main.h"
-/**************************************************
+/**
  * pft - prints range of char addresses
- * @x: except address
- * @z: start address
- * @s: stop address
+ * @exit: exit address
+ * @start: start address
+ * @stop: stop address
  * Return: number bytes
- ***************************************************/
+ */
 int pft(char *start, char *stop, char *exit)
 {
 int sum = 0;
@@ -18,12 +18,12 @@ start++;
 }
 return (sum);
 }
-/**************************************
- * @pr: string
- * @par: parameters struct
+/**
  * pro - prints string in rot13
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: number bytes printed
- **************************************/
+ */
 int pro(va_list pr, params_t *par)
 {
 int u, index;
@@ -49,12 +49,12 @@ u++;
 }
 return (c);
 }
-/**************************************
- * @pr: string
- * @par: parameters struct
+/**
  * prr - prints string in reverse
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: number bytes
- **************************************/
+ */
 int prr(va_list pr, params_t *par)
 {
 int lh, sum = 0;
