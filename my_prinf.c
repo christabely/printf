@@ -1,122 +1,122 @@
 #include "main.h"
 /*********************************
- * @ap: argument pointer
- * @params: parameters struct
+ * @pc: argument pointer
+ * @par: parameters struct
  * pc - prints character
  * Return: number chars printed
  *********************************/
-int pc(va_list ap, params_t *params)
+int pc(va_list pr, params_t *par)
 {
-	char p_c = ' ';
-	unsigned int p = 1, sum = 0, nv = va_arg(ap, int);
-
-	if (params->minus_f)
-		sum += _putchar(nv);
-	while (p++ < params->width)
-		sum += _putchar(p_c);
-	if (!params->minus_f)
-		sum += _putchar(nv);
-	return (sum);
+char pch = ' ';
+unsigned int k = 1, sum = 0, nv = va_arg(pr, int);
+	
+if (par->minus_f)
+sum += _putchar(nv);
+while (k++ < par->w)
+sum += _putchar(pch);
+if (!params->minus_f)
+sum += _putchar(nv);
+return (sum);
 }
 /********************************
- * @ap: argument pointer
- * @params: the parameters struct
+ * @pr: argument pointer
+ * @par: the parameters struct
  * pp - prints string
  * Return: number chars printed
  ********************************/
-int pp(va_list ap, params_t *params)
+int pp(va_list pr, params_t *par)
 {
-	(void)ap;
-	(void)params;
-	return (_putchar('%'));
+(void)pr;
+(void)par;
+return (_putchar('%'));
 }
 /*******************************
- * @params: parameters struct
+ * @par: parameters struct
  * pi - prints integer
- * @ap: argument pointer
+ * @pr: argument pointer
  * Return: number chars printed
  ********************************/
-int pi(va_list ap, params_t *params)
+int pi(va_list pr, params_t *pa)
 {
-	long j;
+long l;
 
-	if (params->l_modifier)
-		j = va_arg(ap, long);
-	else if (params->h_modifier)
-		j = (short int)va_arg(ap, int);
-	else
-		j = (int)va_arg(ap, int);
-	return (print_number(convert(j, 10, 0, params), params));
+if (par->l_m)
+l = va_arg(pr, long);
+else if (par->h_m)
+l = (short int)va_arg(pr, int);
+else
+l = (int)va_arg(pr, int);
+return (pn(con(l, 10, 0, par), par));
 }
 /*********************************
- * @params: the parameters struct
+ * @par: parameters struct
  * p_S - custom format specifier
- * @ap: argument pointer
+ * @pr: argument pointer
  * Return: number chars printed
  ********************************/
-int p_S(va_list ap, params_t *params)
+int p_S(va_list pr, params_t *par)
 {
-	char *str = va_arg(ap, char *);
-	char *hex;
-	int sum = 0;
+char *z = va_arg(pr, char *);
+char *x;
+int sum = 0;
 
-	if ((int)(!str))
-		return (_puts(NULL_STRING));
-	for (; *str; str++)
-	{
-		if ((*str > 0 && *str < 32) || *str >= 127)
-		{
-			sum += _putchar('\\');
-			sum += _putchar('x');
-			hex = convert(*str, 16, 0, params);
-			if (!hex[1])
-				sum += _putchar('0');
-			sum += _puts(hex);
-		}
-		else
-		{
-			sum += _putchar(*str);
-		}
-	}
-	return (sum);
+if ((int)(!z))
+return (_puts(NULL_STRING));
+for (; *z; z++)
+{
+if ((*z > 0 && *z < 32) || *z >= 127)
+{
+sum += _putchar('\\');
+sum += _putchar('x');
+x = con(*z, 16, 0, par);
+if (!x[1])
+sum += _putchar('0');
+sum += _puts(x);
+}
+else
+{
+sum += _putchar(*z);
+}
+}
+return (sum);
 }
 /*********************************
- * @params: parameters struct
+ * @par: parameters struct
  * pst - prints string
- * @ap: argument pointer
+ * @pr: argument pointer
  * Return: number chars printed
  *********************************/
-int pst(va_list ap, params_t *params)
+int pst(va_list pr, params_t *par)
 {
-	char *str = va_arg(ap, char *), p_c = ' ';
-	unsigned int p = 0, sum = 0, h = 0, y;
+char *z = va_arg(pr, char *), pch = ' ';
+unsigned int k = 0, sum = 0, u = 0, y;
 
-	(void)params;
-	switch ((int)(!str))
-		case 1:
-			str = NULL_STRING;
+(void)par;
+switch ((int)(!z))
+case 1:
+z = NULL_STRING;
 
-	y = p = _strlen(str);
-	if (params->precision < p)
-		y = p = params->precision;
+y = k = _st(z);
+if (par->p < k)
+y = k = par->p;
 
-	if (params->minus_flag)
-	{
-		if (params->precision != UINT_MAX)
-			for (h = 0; h < p; h++)
-				sum += _putchar(*str++);
-		else
-			sum += _puts(str);
-	}
-	while (y++ < params->width)
-		sum += _putchar(p_c);
-	if (!params->minus_f)
-	{
-		if (params->precision != UINT_MAX)
-			for (h = 0; h < p; h++)
-				sum += _putchar(*str++);
-		else
-			sum += _puts(str);
-	}
-	return (sum);
+if (par->minus_f)
+{
+if (par->p != UINT_MAX)
+for (u = 0; u < k; u++)
+sum += _putchar(*z++);
+else
+sum += _puts(z);
+}
+while (y++ < par->w)
+sum += _putchar(pch);
+if (!par->minus_f)
+{
+if (par->p != UINT_MAX)
+for (u= 0; u < k; u++)
+sum += _putchar(*z++);
+else
+sum += _puts(z);
+}
+return (sum);
 }
