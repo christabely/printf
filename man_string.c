@@ -3,6 +3,7 @@
  * itp - clears struct fields and reset buf
  * @pr: argument pointer
  * @par: parameters struct
+ *
  * Return: void
  */
 void itp(params_t *par, va_list pr)
