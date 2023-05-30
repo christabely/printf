@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	int sum = 0;
 	va_list pr;
-	char *p, *star;
+	char *p, *start;
 	params_t par = PARAMS_INIT;
 
 	va_start(pr, format);
