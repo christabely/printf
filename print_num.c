@@ -1,126 +1,122 @@
 #include "main.h"
 /*************************************
- * @c: char to check
- * _isdigit - checks if char is digit
+ * @z: char to check
+ * _id - checks if char is digit
  * Return: 1 if digit, 0 otherwise
  *************************************/
-int _id(int c)
+int _id(int z)
 {
-	return (c >= '0' && c <= '9');
+return (z >= '0' && z <= '9');
 }
 /*******************************************
- * @s: the string whose length to check
+ * @z: the string whose length to check
  * _st - returns the length of string
  * Return: integer length of string
  *******************************************/
-int _st(char *s)
+int _st(char *z)
 {
-	int n = 0;
+int u = 0;
 
-	while (*s++)
-		n++;
-	return (n);
+while (*z++)
+u++;
+return (u);
 }
 /***********************************
- * @params: parameter struct
- * @str: base number as a string
+ * @par: parameter struct
+ * @z: base number as a string
  * pn - prints a number with options
  * Return: chars printed
  ***********************************/
-int pn(char *str, params_t *params)
+int pn(char *z, params_t *par)
 {
-	unsigned int i = _strlen(str);
-	int neg = (!params->unsign && *str == '-');
+	unsigned int w = _st(z);
+	int n = (!par->unsign && *z == '-');
 
-	if (!params->precision && *str == '0' && !str[1])
-		str = "";
-	if (neg)
+	if (!par->p && *z == '0' && !z[1])
+		z = "";
+	if (n)
 	{
-		str++;
-		i--;
+		z++;
+		w--;
 	}
-	if (params->precision != UINT_MAX)
-		while (i++ < params->precision)
-			*--str = '0';
-	if (neg)
-		*--str = '-';
+	if (par->p != UINT_MAX)
+		while (u++ < par->p)
+			*--z = '0';
+	if (n)
+		*--z = '-';
 
-	if (!params->minus_f)
-		return (pn(str, params));
+	if (!par->minus_f)
+		return (pnrs(z, par));
 	else
-		return (pn(str, params));
+		return (pnls(z, par));
 }
 /********************************************************
- * @str: base num as string
- * @params: parameter struct
+ * @z: base num as string
+ * @par: parameter struct
  * pnls - prints a number with options
- *
  * Return: chars printed
  *********************************************************/
-int pnls(char *str, params_t *params)
+int pnls(char *z, params_t *par)
 {
-	unsigned int k = 0, neg, neg2;
-	unsigned int w;
-	char pad_char = ' ';
+	unsigned int k = 0, n, n2; u =  _st(z);
+	char pch = ' ';
 
-	w = _strlen(str);
-
-	if (params->zero_flag && !params->minus_flag)
-		pad_char = '0';
-	neg = neg2 = (!params->unsign && *str == '-');
-	if (neg && w < params->width && pad_char == '0' && !params->minus_flag)
-		str++;
+	k = _st(z);
+	
+	if (par->zero_f && !par->minus_f)
+		pch = '0';
+	n = n2 = (!par->unsign && *z == '-');
+	if (n && u < par->w && pch == '0' && !par->minus_f)
+		z++;
 	else
-		neg = 0;
+		n = 0;
 
-	if (params->plus_flag && !neg2 && !params->unsign)
-		k += _putchar('+'), w++;
-	else if (params->space_flag && !neg2 && !params->unsign)
-		k += _putchar(' '), w++;
-	k += _puts(str);
-
-	for (; w < params->width; w++)
-		k += _putchar(pad_char);
-
+	if (par->plus_f && !n2 && !par->unsign)
+		k += _putchar('+'), u++;
+	else if (par->space_f && !n2 && !par->unsign)
+		k += _putchar(' '), u++;
+	k += _puts(z);
+	while (u++ < par->w)
+		k += _putchar(pch);
 	return (k);
 }
 /******************************************************
- * @str: base num as string
- * @params: parameter struct
+ * @z: base num as string
+ * @par: parameter struct
  * pnrs - prints number with options
  * Return: chars printed
  *******************************************************/
-int pnrs(char *str, params_t *params)
+int pnrs(char *z, params_t *par)
 {
-	unsigned int v = 0, neg, neg2, g = _strlen(str);
-	char pad_char = ' ';
+	unsigned int k = 0, n, n2, u = _st(z);
+	char pch = ' ';
 
-	if (params->zero_f && !params->minus_f)
-		pad_char = '0';
-	neg = neg2 = (!params->unsign && *str == '-');
-	if (neg && g < params->width && pad_char == '0' && !params->minus_f)
-		str++;
+	if (par->zero_f && !par->minus_f)
+		pch = '0';
+	n = n2 = (!par->unsign && *z == '-');
+	if (n && u < par->w && pch == '0' && !par->minus_f)
+		z++;
 	else
-		neg = 0;
-	if ((params->plus_f && !neg2) ||
-		(!params->plus_f && params->space_f && !neg2))
-		g++;
-	if (neg && pad_char == '0')
-		v += _putchar('-');
-	if (params->plus_f && !neg2 && pad_char == '0' && !params->unsign)
-		v += _putchar('+');
-	else if (!params->plus_f && params->space_f && !neg2 &&
-		!params->unsign && params->zero_f)
-		v += _putchar(' ');
-	while (g++ < params->width)
-		v += _putchar(pad_char);
-	if (neg && pad_char == ' ')
-		v += _putchar('-');
-	if (params->plus_f && !neg2 && pad_char == ' ' && !params->unsign)
-		v += _putchar('+');
-	else if (!params->plus_f && params->space_f && !neg2 &&
-		!params->unsign && !params->zero_f)
-		v += _putchar(' ');
-	v += _puts(str);
-	return (v);
+		n = 0;
+	if ((par->plus_f && !n2) ||
+		(!par->plus_f && par->space_f && !n2))
+		u++;
+	if (n && pch == '0')
+		k += _putchar('-');
+	if (par->plus_f && !n2 && pch == '0' && !par->unsign)
+		k += _putchar('+');
+	else if (!par->plus_f && par->space_f && !n2 &&
+		!par->unsign && par->zero_f)
+		k += _putchar(' ');
+	while (u++ < par->w)
+		k += _putchar(pch);
+	if (n && pch == ' ')
+		k += _putchar('-');
+	if (par->plus_f && !n2 && pch == ' ' && !par->unsign)
+		k += _putchar('+');
+	else if (!par->plus_f && par->space_f && !n2 &&
+		!par->unsign && !par->zero_f)
+		k += _putchar(' ');
+	k += _puts(z);
+	return (k);
 }
