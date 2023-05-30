@@ -58,16 +58,16 @@ return (c);
 int prr(va_list pr, params_t *par)
 {
 int lh, sum = 0;
-char *sr = va_arg(pr, char *);
+char *z = va_arg(pr, char *);
 (void)par;
 
-if (sr)
+if (z)
 {
-for (lh = 0; *sr; sr++)
+for (lh = 0; *z; z++)
 lh++;
-str--;
-for (; lh > 0; lh--, sr--)
-sum += _putchar(*sr);
+z--;
+for (; lh > 0; lh--, z--)
+sum += _putchar(*z);
 }
 return (sum);
 }
