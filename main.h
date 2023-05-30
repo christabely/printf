@@ -63,27 +63,27 @@ int gpf(char *z, va_list pr, params_t *par);
 int _printf(const char *format, ...);
 void itp(params_t *par, va_list pr);
 int pst(va_list pr, params_t *par);
-int pft(char *z, char *s, char *x)
-int p_S(va_list pr, params_t *par)
-int p_u(va_list pr, params_t *par)
-int p_a(va_list pr, params_t *par)
-int prr(va_list pr, params_t *par)
-int pro(va_list pr, params_t *par)
-int p_h(va_list pr, params_t *par)
-int p_H(va_list pr, params_t *par)
+int pft(char *z, char *s, char *x);
+int p_S(va_list pr, params_t *par);
+int p_u(va_list pr, params_t *par);
+int p_a(va_list pr, params_t *par);
+int prr(va_list pr, params_t *par);
+int pro(va_list pr, params_t *par);
+int p_h(va_list pr, params_t *par);
+int p_H(va_list pr, params_t *par);
 int pb(va_list pr, params_t *par);
-int po(va_list pr, params_t *par)
-int pc(va_list pr, params_t *par)
-int pi(va_list pr, params_t *par)
-int pp(va_list pr, params_t *par)
-int pnrs(char *z, params_t *par)
-int pnls(char *z, params_t *par)
-int gf(char *z, params_t *par)
-int gm(char *z, params_t *par)
-int pn(char *z, params_t *par)
+int po(va_list pr, params_t *par);
+int pc(va_list pr, params_t *par);
+int pi(va_list pr, params_t *par);
+int pp(va_list pr, params_t *par);
+int pnrs(char *z, params_t *par);
+int pnls(char *z, params_t *par);
+int gf(char *z, params_t *par);
+int gm(char *z, params_t *par);
+int pn(char *z, params_t *par);
 int _putchar(int c);
-int _puts(char *z)
-int _st(char *z)
-int _id(int z}
+int _puts(char *z);
+int _st(char *z);
+int _id(int z);
 	
 #endif
