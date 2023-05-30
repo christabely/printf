@@ -11,7 +11,7 @@ specifier_t speci[] = {
 {"d", pi},
 {"i", pi},
 {"s", pst},
-{"r", pr},
+{"r", prr},
 {"b", pb},
 {"S", p_S},
 {"o", po},
@@ -108,6 +108,6 @@ else
 while (_id(*z))
 u = u * 10 + (*z++ - '0');
 }
-params->w = u;
+par->w = u;
 return (z);
 }
