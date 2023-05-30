@@ -1,28 +1,28 @@
 #include "main.h"
 
-char *gp(char *l, params_t *par, va_list pr)
+char *gp(char *z, params_t *par, va_list pr)
 {
 int u = 0;
 
-if (*l != '.')
-return (l);
-l++;
-if (*l == '*')
+if (*z != '.')
+return (z);
+z++;
+if (*z == '*')
 {
 u = va_arg(pr, int);
-l++;
+z++;
 }
 else
 {
-while (_id(*l))
-u = u * 10 + (*l++ - '0');
+while (_id(*z))
+u = u * 10 + (*z++ - '0');
 }
 params->p = u;
-return (l);
+return (z);
 }
 /************************************************************
  * gp - gets precision from format string
- * @l: format string
+ * @z: format string
  * @pr: pointer argument 
  * @par: parameters struct 
  * Return: new pointer
