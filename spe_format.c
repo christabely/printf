@@ -1,6 +1,6 @@
 #include "main.h"
 
-char *gp(char *l, params_t *params, va_list ap)
+char *gp(char *l, params_t *par, va_list pr)
 {
 int u = 0;
 
@@ -9,7 +9,7 @@ return (l);
 l++;
 if (*l == '*')
 {
-u = va_arg(ap, int);
+u = va_arg(pr, int);
 l++;
 }
 else
@@ -21,9 +21,9 @@ params->p = u;
 return (l);
 }
 /************************************************************
- * get_precision - gets the precision from the format string
+ * gp - gets precision from format string
  * @l: format string
- * @ap: argument pointer
- * @params: parameters struct 
+ * @pr: pointer argument 
+ * @par: parameters struct 
  * Return: new pointer
  ************************************************************/
