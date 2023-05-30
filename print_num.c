@@ -58,7 +58,7 @@ int pn(char *z, params_t *par)
  *********************************************************/
 int pnls(char *z, params_t *par)
 {
-	unsigned int k = 0, n, n2; u =  _st(z);
+	unsigned int k = 0, n, n2, u = _st(z);
 	char pch = ' ';
 
 	k = _st(z);
