@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * gp - gets precision from format string
+ * gp - get precision from format string
  * @z: base num as string
  * @pr: pointer argument
  * @par: parameters struct
