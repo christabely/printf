@@ -6,15 +6,15 @@
  * @s: stop address
  * Return: number bytes
  ***************************************************/
-int pft(char *z, char *s, char *x)
+int pft(char *start, char *stop, char *exit)
 {
 int sum = 0;
 
-while (z <= s)
+while (start <= stop)
 {
-if (z != x)
-sum += _putchar(*z);
-z++;
+if (start != exit)
+sum += _putchar(*start);
+start++;
 }
 return (sum);
 }
