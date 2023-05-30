@@ -1,76 +1,75 @@
 #include "main.h"
-
 /**************************************************
- * convert - converter function, a clone of itoa
- * @num: number
- * @base: base
- * @flags: argument flags
- * @params: paramater struct
+ * con - converter function, a clone of itoa
+ * @b: number
+ * @bs: base
+ * @fs: argument flags
+ * @par: paramater struct
  * Return: string
  ***************************************************/
-char *convert(long int num, int base, int flags, params_t *params)
+char *con(long int b, int bs, int fs, params_t *par)
 {
-	static char *array;
-	static char buffer[50];
-	char sign = 0;
-	char *ptr;
-	unsigned long n = num;
-	(void)params;
+static char *array;
+static char buffer[50];
+char sign = 0;
+char *tr;
+unsigned long h = b;
+(void)par;
 
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
-	{
-		n = -num;
-		sign = '-';
+if (!(fs & CON_UNSIGNED) && b < 0)
+{
+h = -b;
+sign = '-';
 
-	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
+}
+array = fs & CON_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+tr = &buffer[49];
+*tr = '\0';
 
-	do	{
-		*--ptr = array[n % base];
-		n /= base;
-	} while (n != 0);
+do	{
+*--tr = array[n % bs];
+h /= bs;
+} while (h != 0);
 
-	if (sign)
-		*--ptr = sign;
-	return (ptr);
+if (sign)
+*--tr = sign;
+return (tr);
 }
 /*************************************************
  * p_u - prints unsigned integer numbers
- * @ap: argument pointer
- * @params: the parameters struct
+ * @pr: argument pointer
+ * @par: the parameters struct
  * Return: bytes printed
  *************************************************/
-int p_u(va_list ap, params_t *params)
+int p_u(va_list pr, params_t *par)
 {
-	unsigned long h;
+unsigned long h;
 
-	if (params->h_m)
-		h = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_modifier)
-		h = (unsigned short int)va_arg(ap, unsigned int);
-	else
-		h = (unsigned int)va_arg(ap, unsigned int);
-	params->unsign = 1;
-	return (p_n(convert(l, 10, CONVERT_UNSIGNED, params), params));
+if (par->h_m)
+h = (unsigned long)va_arg(pr, unsigned long);
+else if (params->h_modifier)
+h = (unsigned short int)va_arg(pr, unsigned int);
+else
+h = (unsigned int)va_arg(pr, unsigned int);
+par->unsign = 1;
+return (pn(con(l, 10, CON_UNSIGNED, par), par));
 }
 /****************************
  * p_a - prints address
- * @ap: argument pointer
- * @params: parameters struct
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: bytes printed
  ****************************/
-int p_a(va_list ap, params_t *params)
+int p_a(va_list pr, params_t *par)
 {
-	unsigned long int f = va_arg(ap, unsigned long int);
-	char *str;
+	unsigned long int h = va_arg(pr, unsigned long int);
+	char *z;
 
-	if (!f)
+	if (!h)
 		return (_puts("(nil)"));
 
-	str = convert(f, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
-	*--str = 'x';
-	*--str = '0';
-	return (p_n(str, params));
+	z = con(h, 16, CON_UNSIGNED | CON_LOWERCASE, par);
+	*--z = 'x';
+	*--z = '0';
+	return (pn(z, par));
 }
