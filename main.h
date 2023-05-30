@@ -40,10 +40,11 @@ typedef struct parameters
 	unsigned int minus_f : 1;
 	unsigned int h_m : 1;
 	unsigned int l_m : 1;
-	int p;
+	
+	unsigned int p;
 	unsigned int u;
 	unsigned int w;
-	unsigned int p;
+	
 } params_t;
 /***********************************
  * struct specifier - Struct token
