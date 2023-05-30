@@ -1,16 +1,16 @@
 #include "main.h"
 /***************************************
- * @str: string to print
+ * @z: string to print
  * _puts - prints string with newline
  * Return: void
  ***************************************/
-int _puts(char *str)
+int _puts(char *z)
 {
-	char *a = str;
+	char *u = z;
 
-	while (*str)
-		_putchar(*str++);
-	return (str - a);
+	while (*z)
+		_putchar(*z++);
+	return (z - u);
 }
 /**********************************************************
  * _putchar - writes char c to stdout
