@@ -38,12 +38,14 @@ typedef struct parameters
 	unsigned int hashtag_f : 1;
 	unsigned int zero_f : 1;
 	unsigned int minus_f : 1;
+	
+	unsigned int w;
+	unsigned int p;
+	unsigned int u;
+	
 	unsigned int h_m : 1;
 	unsigned int l_m : 1;
 	
-	unsigned int p;
-	unsigned int u;
-	unsigned int w;
 	
 } params_t;
 /***********************************
