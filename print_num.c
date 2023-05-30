@@ -40,7 +40,7 @@ int pn(char *z, params_t *par)
 		w--;
 	}
 	if (par->p != UINT_MAX)
-		while (u++ < par->p)
+		while (w++ < par->p)
 			*--z = '0';
 	if (n)
 		*--z = '-';
