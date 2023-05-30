@@ -1,100 +1,99 @@
 #include "main.h"
 /*******************************************************
  * p_h - prints unsigned lowercase hex num
- * @ap: argument pointer
- * @params: parameters struct
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: bytes printed
  *******************************************************/
-int p_h(va_list ap, params_t *params)
+int p_h(va_list pr, params_t *par)
 {
 	unsigned long h;
 	int c = 0;
-	char *str;
+	char *z;
 
-	if (params->h_m)
-		h = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_m)
-		h = (unsigned short int)va_arg(ap, unsigned int);
+	if (par->l_m)
+		h = (unsigned long)va_arg(pr, unsigned long);
+	else if (par->h_m)
+		h = (unsigned short int)va_arg(pr, unsigned int);
 	else
-		h = (unsigned int)va_arg(ap, unsigned int);
+		h = (unsigned int)va_arg(pr, unsigned int);
 
-	str = convert(h, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
-	if (params->hashtag_flag && l)
+	z = con(h, 16, CON_UNSIGNED | CONV_LOWERCASE, par);
+	if (par->hashtag_f && h)
 	{
-		*--str = 'x';
-		*--str = '0';
+		*--z = 'x';
+		*--z = '0';
 	}
-	params->unsign = 1;
-	return (c += pn(str, params));
+	par->unsign = 1;
+	return (c += pn(z, par));
 }
 /************************************************
- * po - prints unsigned octal numbers
- * @ap: the argument pointer
- * @params: the parameters struct
+ * po - prints unsigned octal num
+ * @pr: argument pointer
+ * @par: the parameters struct
  * Return: bytes printed
  ************************************************/
-int po(va_list ap, params_t *params)
+int po(va_list pr, params_t *par)
 {
-	unsigned long k;
-	char *str;
+	unsigned long h;
+	char *z;
 	int c = 0;
 
-	if (params->h_modifier)
-		k = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_m)
-		k = (unsigned short int)va_arg(ap, unsigned int);
+	if (par->l_m)
+		h = (unsigned long)va_arg(pr, unsigned long);
+	else if (par->h_m)
+		h = (unsigned short int)va_arg(pr, unsigned int);
 	else
-		k = (unsigned int)va_arg(ap, unsigned int);
-	str = convert(k, 8, CONVERT_UNSIGNED, params);
+		h = (unsigned int)va_arg(pr, unsigned int);
+	z = con(k, 8, CON_UNSIGNED, par);
 
-	if (params->hashtag_f && k)
-		*--str = '0';
-	params->unsign = 1;
-	return (c += p_n(str, params));
+	if (par->hashtag_f && h)
+		*--z = '0';
+	par->unsign = 1;
+	return (c += pn(z, par));
 }
 /*********************************************************
- * @ap: argument pointer
- * @params: parameters struct
+ * @pr: argument pointer
+ * @par: parameters struct
  * p_H - prints unsigned hex numbers in uppercase
  * Return: bytes printed
  *********************************************************/
-int p_H(va_list ap, params_t *params)
+int p_H(va_list pr, params_t *par)
 {
 	unsigned long h;
 	int c = 0;
-	char *str;
+	char *z;
 
-	if (params->l_m)
-		h = (unsigned long)va_arg(ap, unsigned long);
-	else if (params->h_m)
-		h = (unsigned short int)va_arg(ap, unsigned int);
+	if (par->l_m)
+		h = (unsigned long)va_arg(pr, unsigned long);
+	else if (par->h_m)
+		h = (unsigned short int)va_arg(pr, unsigned int);
 	else
-		h = (unsigned int)va_arg(ap, unsigned int);
+		h = (unsigned int)va_arg(pr, unsigned int);
 
-	str = convert(h, 16, CONVERT_UNSIGNED, params);
-	if (params->hashtag_flag && l)
+	z = con(h, 16, CON_UNSIGNED, par);
+	if (par->hashtag_f && h)
 	{
-		*--str = 'X';
-		*--str = '0';
+		*--z = 'X';
+		*--z = '0';
 	}
-	params->unsign = 1;
-	return (c += pn(str, params));
+	par->unsign = 1;
+	return (c += pn(z, par));
 }
 /**********************************************
- * print_binary - prints unsigned binary number
- * @ap: the argument pointer
- * @params: the parameters struct
- *
+ * pb - prints unsigned binary number
+ * @pr: the argument pointer
+ * @par: the parameters struct
  * Return: bytes printed
  **********************************************/
-int print_binary(va_list ap, params_t *params)
+int pb(va_list pr, params_t *par)
 {
-	unsigned int u = va_arg(ap, unsigned int);
-	char *str = convert(n, 2, CONVERT_UNSIGNED, params);
-	int q = 0;
+	unsigned int h = va_arg(pr, unsigned int);
+	char *z = con(n, 2, CON_UNSIGNED, par);
+	int c = 0;
 
-	if (params->hashtag_f && u)
-		*--str = '0';
-	params->unsign = 1;
-	return (q += p_n(str, params));
+	if (par->hashtag_f && h)
+		*--z = '0';
+	par->unsign = 1;
+	return (c += pn(z, par));
 }
