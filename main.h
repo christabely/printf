@@ -30,7 +30,6 @@
  * @p: field precision specified
  * @h_m: on if h_m is specified
  * @l_m: on if l_m is specified
- *
  */
 typedef struct parameters
 {
@@ -48,7 +47,6 @@ typedef struct parameters
 	unsigned int h_m : 1;
 	unsigned int l_m : 1;
 } params_t;
-#define PARAMS_INIT { .l_m = 0 }
 /***********************************
  * struct specifier - Struct token
  * @specifier: format token
