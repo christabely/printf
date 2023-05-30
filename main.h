@@ -12,11 +12,12 @@
 #define FIELD_BUF_SIZE 50
 #define NULL_STRING "(null)"
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-#define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	2
+#define CON_LOWERCASE	1
+#define CON_UNSIGNED	2
 
 /**
  * struct parameters - parameters struct
+ * @par - parameters struct
  * @unsign: flag if unsigned value
  * @plus_f: on if plus_flag specified
  * @space_f: on if hashtag_flag specified
@@ -40,51 +41,49 @@ typedef struct parameters
 	unsigned int h_modifier : 1;
 	unsigned int l_modifier : 1;
 	unsigned int w;
-	unsigned int p;
+	unsigned int k;
 } params_t;
-
-/**
+/***********************************
  * struct specifier - Struct token
- *
  * @specifier: format token
  * @f: The function associated
- */
+ **********************************/
 typedef struct specifier
 {
-	char *specifier;
+	char *speci;
 	int (*f)(va_list, params_t *);
 } specifier_t;
 
-int _puts(char *str);
-int _putchar(int c);
-char *gw(char *s, params_t *params, va_list ap)
-int p_h(va_list ap, params_t *params)
-int p_H(va_list ap, params_t *params)
-int print_binary(va_list ap, params_t *params);
-int po(va_list ap, params_t *params)
-char *convert(long int num, int base, int flags, params_t *params);
-int p_u(va_list ap, params_t *params)
-int p_a(va_list ap, params_t *params)
-int (*get_specifier(char *s))(va_list ap, params_t *params);
-int gpf(char *s, va_list ap, params_t *params)
-int print_char(va_list ap, params_t *params);
-int pi(va_list ap, params_t *params)
-int pst(va_list ap, params_t *params)
-int pp(va_list ap, params_t *params)
-int p_S(va_list ap, params_t *params)
-int gf(char *s, params_t *params)
-int gm(char *s, params_t *params)
-int pft(char *start, char *stop, char *except)
-int pr(va_list ap, params_t *params)
-int pro(va_list ap, params_t *params)
-/* print_number.c module */
-int _isdigit(int c);
-int _strlen(char *s);
-int pn(char *str, params_t *params)
-int pnrs(char *str, params_t *params)
-int pnls(char *str, params_t *params)
-void init_params(params_t *params, va_list ap);
-char *gp(char *l, params_t *params, va_list ap)
+/* function prototypes in decending order*/
+char *con(long int b, int bs, int fs, params_t *par);
+int (*gs(char *z))(va_list pr, params_t *par);
+char *gw(char *z, params_t *par, va_list pr);
+char *gp(char *z, params_t *par, va_list pr);
+int gpf(char *z, va_list pr, params_t *par);
 int _printf(const char *format, ...);
-
+void itp(params_t *par, va_list pr);
+int pst(va_list pr, params_t *par);
+int pft(char *z, char *s, char *x)
+int p_S(va_list pr, params_t *par)
+int p_u(va_list pr, params_t *par)
+int p_a(va_list pr, params_t *par)
+int prr(va_list pr, params_t *par)
+int pro(va_list pr, params_t *par)
+int p_h(va_list pr, params_t *par)
+int p_H(va_list pr, params_t *par)
+int pb(va_list pr, params_t *par);
+int po(va_list pr, params_t *par)
+int pc(va_list pr, params_t *par)
+int pi(va_list pr, params_t *par)
+int pp(va_list pr, params_t *par)
+int pnrs(char *z, params_t *par)
+int pnls(char *z, params_t *par)
+int gf(char *z, params_t *par)
+int gm(char *z, params_t *par)
+int pn(char *z, params_t *par)
+int _putchar(int c);
+int _puts(char *z)
+int _st(char *z)
+int _id(int z}
+	
 #endif
