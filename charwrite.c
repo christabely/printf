@@ -1,13 +1,34 @@
 #include "main.h"
-
-/**
- * charwrite - Writes a character to the standard output
- * @c: The character to write
- * @count: Pointer to the counter of characters printed
- *
- * Return: On success, 1. On error, -1.
- */
-int charwrite(char c, int *count)
+/***************************************
+ * @str: string to print
+ * _puts - prints string with newline
+ * Return: void
+ ***************************************/
+int _puts(char *str)
 {
-	return (write(1, &c, 1));
+	char *a = str;
+
+	while (*str)
+		_putchar(*str++);
+	return (str - a);
+}
+/**********************************************************
+ * _putchar - writes char c to stdout
+ * @c: character to print
+ * Return: On success 1.
+ * On error, -1 is returned, and error is set appropriately.
+ **********************************************************/
+int _putchar(int c)
+{
+	static int i;
+	static char buf[OUTPUT_BUF_SIZE];
+
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
+	{
+		write(1, buf, i);
+		i = 0;
+	}
+	if (c != BUF_FLUSH)
+		buf[i++] = c;
+	return (1);
 }
