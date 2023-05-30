@@ -40,7 +40,7 @@ return (NULL);
  * @z:  string
  * @pr: pointer argument
  * @par: parameters struct
- * Return: number of bytes
+ * Return: number of byte
  */
 int gpf(char *z, va_list pr, params_t *par)
 {
