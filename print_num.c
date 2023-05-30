@@ -1,18 +1,18 @@
 #include "main.h"
-/*************************************
- * @z: char to check
+/**
  * _id - checks if char is digit
- * Return: 1 if digit, 0 otherwise
- *************************************/
+ * @z: base num as string
+ * Return: chars printed
+ */
 int _id(int z)
 {
 return (z >= '0' && z <= '9');
 }
-/*******************************************
- * @z: the string whose length to check
+/**
  * _st - returns the length of string
- * Return: integer length of string
- *******************************************/
+ * @z: base num as string
+ * Return: chars printed
+ */
 int _st(char *z)
 {
 int u = 0;
@@ -21,12 +21,12 @@ while (*z++)
 u++;
 return (u);
 }
-/***********************************
- * @par: parameter struct
- * @z: base number as a string
+/**
  * pn - prints a number with options
+ * @z: base num as string
+ * @par: parameter struct
  * Return: chars printed
- ***********************************/
+ */
 int pn(char *z, params_t *par)
 {
 	unsigned int w = _st(z);
@@ -50,19 +50,19 @@ int pn(char *z, params_t *par)
 	else
 		return (pnls(z, par));
 }
-/********************************************************
+/**
+ * pnls - prints a number with options
  * @z: base num as string
  * @par: parameter struct
- * pnls - prints a number with options
  * Return: chars printed
- *********************************************************/
+ */
 int pnls(char *z, params_t *par)
 {
 	unsigned int k = 0, n, n2, u = _st(z);
 	char pch = ' ';
 
 	k = _st(z);
-	
+
 	if (par->zero_f && !par->minus_f)
 		pch = '0';
 	n = n2 = (!par->unsign && *z == '-');
@@ -80,12 +80,12 @@ int pnls(char *z, params_t *par)
 		k += _putchar(pch);
 	return (k);
 }
-/******************************************************
+/**
+ * pnrs - prints number with options
  * @z: base num as string
  * @par: parameter struct
- * pnrs - prints number with options
  * Return: chars printed
- *******************************************************/
+ */
 int pnrs(char *z, params_t *par)
 {
 	unsigned int k = 0, n, n2, u = _st(z);

@@ -27,18 +27,6 @@ To use the `0x11.c-printf` function, follow these steps:
 3. Include the `printf.h` header file in your C source code.
 4. Call the `printf` function in your code, providing the format string and any necessary arguments.
 
-Here's an example of how to use the `printf` function:
-
-```c
-#include <stdio.h>
-#include "printf.h"
-
-int main() {
-    int num = 10;
-    printf("The value is: %d\n", num);
-    return 0;
-}
-
 Acknowledgments
 We would like to thank the C programming community and the developers of the original printf function for their valuable insights and contributions.
 

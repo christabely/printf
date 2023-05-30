@@ -1,15 +1,15 @@
 #include "main.h"
-/*********************************
- * @pc: argument pointer
- * @par: parameters struct
+/**
  * pc - prints character
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: number chars printed
- *********************************/
+ */
 int pc(va_list pr, params_t *par)
 {
 char pch = ' ';
 unsigned int k = 1, sum = 0, nv = va_arg(pr, int);
-	
+
 if (par->minus_f)
 sum += _putchar(nv);
 while (k++ < par->w)
@@ -18,24 +18,24 @@ if (!par->minus_f)
 sum += _putchar(nv);
 return (sum);
 }
-/********************************
- * @pr: argument pointer
- * @par: the parameters struct
+/**
  * pp - prints string
+ * @pr: argument pointer
+ * @par: parameters struct
  * Return: number chars printed
- ********************************/
+ */
 int pp(va_list pr, params_t *par)
 {
 (void)pr;
 (void)par;
 return (_putchar('%'));
 }
-/*******************************
- * @par: parameters struct
+/**
  * pi - prints integer
  * @pr: argument pointer
+ * @par: parameters struct
  * Return: number chars printed
- ********************************/
+ */
 int pi(va_list pr, params_t *par)
 {
 long l;
@@ -48,12 +48,12 @@ else
 l = (int)va_arg(pr, int);
 return (pn(con(l, 10, 0, par), par));
 }
-/*********************************
- * @par: parameters struct
+/**
  * p_S - custom format specifier
  * @pr: argument pointer
+ * @par: parameters struct
  * Return: number chars printed
- ********************************/
+ */
 int p_S(va_list pr, params_t *par)
 {
 char *z = va_arg(pr, char *);
@@ -80,12 +80,12 @@ sum += _putchar(*z);
 }
 return (sum);
 }
-/*********************************
- * @par: parameters struct
+/**
  * pst - prints string
  * @pr: argument pointer
+ * @par: parameters struct
  * Return: number chars printed
- *********************************/
+ */
 int pst(va_list pr, params_t *par)
 {
 char *z = va_arg(pr, char *), pch = ' ';
@@ -113,7 +113,7 @@ sum += _putchar(pch);
 if (!par->minus_f)
 {
 if (par->p != UINT_MAX)
-for (u= 0; u < k; u++)
+for (u = 0; u < k; u++)
 sum += _putchar(*z++);
 else
 sum += _puts(z);

@@ -1,11 +1,10 @@
 #include "main.h"
 /**
- * gp - gets precision from format string
- * @z: format string
- * @par: parameter
- * @pr: argument pointer
- *
- * Return: new pointer
+ * gp - get precision from format string
+ * @z: base num as string
+ * @pr: pointer argument
+ * @par: parameters struct
+ * Return: chars printed
  */
 char *gp(char *z, params_t *par, va_list pr)
 {

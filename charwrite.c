@@ -1,9 +1,10 @@
 #include "main.h"
-/***************************************
- * @z: string to print
+/**
  * _puts - prints string with newline
+ * @z: string to print
+ *
  * Return: void
- ***************************************/
+ */
 int _puts(char *z)
 {
 	char *u = z;
@@ -12,12 +13,12 @@ int _puts(char *z)
 		_putchar(*z++);
 	return (z - u);
 }
-/**********************************************************
+/**
  * _putchar - writes char c to stdout
  * @c: character to print
- * Return: On success 1.
+ * Return: On success 1
  * On error, -1 is returned, and error is set appropriately.
- **********************************************************/
+ */
 int _putchar(int c)
 {
 	static int i;

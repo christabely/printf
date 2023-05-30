@@ -1,9 +1,10 @@
 #include "main.h"
-/**********************************
+/**
  * _printf - prints anything
  * @format: the format string
- * Return: number of bytes printed
- **********************************/
+ *
+ * Return: number of chars printed
+ */
 int _printf(const char *format, ...)
 {
 	int sum = 0;

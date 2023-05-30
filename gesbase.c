@@ -1,12 +1,12 @@
 #include "main.h"
-/**************************************************
+/**
  * con - converter function, a clone of itoa
  * @b: number
  * @bs: base
  * @fs: argument flags
- * @par: paramater struct
+ * @par: parameters struct
  * Return: string
- ***************************************************/
+ */
 char *con(long int b, int bs, int fs, params_t *par)
 {
 static char *array;
@@ -35,12 +35,12 @@ if (sign)
 *--tr = sign;
 return (tr);
 }
-/*************************************************
+/**
  * p_u - prints unsigned integer numbers
  * @pr: argument pointer
- * @par: the parameters struct
+ * @par: parameters struct
  * Return: bytes printed
- *************************************************/
+ */
 int p_u(va_list pr, params_t *par)
 {
 unsigned long h;
@@ -54,12 +54,12 @@ h = (unsigned int)va_arg(pr, unsigned int);
 par->unsign = 1;
 return (pn(con(h, 10, CON_UNSIGNED, par), par));
 }
-/****************************
+/**
  * p_a - prints address
  * @pr: argument pointer
  * @par: parameters struct
  * Return: bytes printed
- ****************************/
+ */
 int p_a(va_list pr, params_t *par)
 {
 	unsigned long int h = va_arg(pr, unsigned long int);
