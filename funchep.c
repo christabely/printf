@@ -18,7 +18,7 @@ int p_h(va_list pr, params_t *par)
 	else
 		h = (unsigned int)va_arg(pr, unsigned int);
 
-	z = con(h, 16, CON_UNSIGNED | CONV_LOWERCASE, par);
+	z = con(h, 16, CON_UNSIGNED | CON_LOWERCASE, par);
 	if (par->hashtag_f && h)
 	{
 		*--z = 'x';
@@ -45,7 +45,7 @@ int po(va_list pr, params_t *par)
 		h = (unsigned short int)va_arg(pr, unsigned int);
 	else
 		h = (unsigned int)va_arg(pr, unsigned int);
-	z = con(k, 8, CON_UNSIGNED, par);
+	z = con(h, 8, CON_UNSIGNED, par);
 
 	if (par->hashtag_f && h)
 		*--z = '0';
@@ -89,7 +89,7 @@ int p_H(va_list pr, params_t *par)
 int pb(va_list pr, params_t *par)
 {
 	unsigned int h = va_arg(pr, unsigned int);
-	char *z = con(n, 2, CON_UNSIGNED, par);
+	char *z = con(h, 2, CON_UNSIGNED, par);
 	int c = 0;
 
 	if (par->hashtag_f && h)
