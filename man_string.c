@@ -10,8 +10,8 @@ par->zero_f = 0;
 par->plus_f = 0;
 par->minus_f = 0;
 par->space_f = 0;
-params->l_m = 0;
-params->h_m = 0;
+par->l_m = 0;
+par->h_m = 0;
 (void)pr;
 }
 /*************************************************

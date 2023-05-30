@@ -11,7 +11,9 @@
 #define BUF_FLUSH -1
 #define FIELD_BUF_SIZE 50
 #define NULL_STRING "(null)"
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
 #define CON_LOWERCASE	1
 #define CON_UNSIGNED	2
 
@@ -28,7 +30,6 @@
  * @p: field precision specified
  * @h_m: on if h_m is specified
  * @l_m: on if l_m is specified
- *
  */
 typedef struct parameters
 {
@@ -38,10 +39,13 @@ typedef struct parameters
 	unsigned int hashtag_f : 1;
 	unsigned int zero_f : 1;
 	unsigned int minus_f : 1;
-	unsigned int h_modifier : 1;
-	unsigned int l_modifier : 1;
+	
 	unsigned int w;
-	unsigned int k;
+	unsigned int p;
+	unsigned int u;
+	
+	unsigned int h_m : 1;
+	unsigned int l_m : 1;
 } params_t;
 /***********************************
  * struct specifier - Struct token
@@ -63,8 +67,9 @@ int gpf(char *z, va_list pr, params_t *par);
 int _printf(const char *format, ...);
 void itp(params_t *par, va_list pr);
 int pst(va_list pr, params_t *par);
-int pft(char *z, char *s, char *x);
+int pft(char *start, char *stop, char *exit);
 int p_S(va_list pr, params_t *par);
+
 int p_u(va_list pr, params_t *par);
 int p_a(va_list pr, params_t *par);
 int prr(va_list pr, params_t *par);
@@ -73,6 +78,7 @@ int p_h(va_list pr, params_t *par);
 int p_H(va_list pr, params_t *par);
 int pb(va_list pr, params_t *par);
 int po(va_list pr, params_t *par);
+
 int pc(va_list pr, params_t *par);
 int pi(va_list pr, params_t *par);
 int pp(va_list pr, params_t *par);
@@ -83,6 +89,7 @@ int gm(char *z, params_t *par);
 int pn(char *z, params_t *par);
 int _putchar(int c);
 int _puts(char *z);
+
 int _st(char *z);
 int _id(int z);
 	

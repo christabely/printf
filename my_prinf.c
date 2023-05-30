@@ -14,7 +14,7 @@ if (par->minus_f)
 sum += _putchar(nv);
 while (k++ < par->w)
 sum += _putchar(pch);
-if (!params->minus_f)
+if (!par->minus_f)
 sum += _putchar(nv);
 return (sum);
 }
@@ -36,7 +36,7 @@ return (_putchar('%'));
  * @pr: argument pointer
  * Return: number chars printed
  ********************************/
-int pi(va_list pr, params_t *pa)
+int pi(va_list pr, params_t *par)
 {
 long l;
 
