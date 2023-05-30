@@ -32,6 +32,7 @@ int p_h(va_list pr, params_t *par)
  * po - prints unsigned octal num
  * @pr: argument pointer
  * @par: parameters struct
+ *
  * Return: bytes printed
  */
 int po(va_list pr, params_t *par)
