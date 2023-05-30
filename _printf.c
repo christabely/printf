@@ -7,11 +7,11 @@
 int _printf(const char *format, ...)
 {
 	int sum = 0;
-	va_list ap;
-	char *p, *start;
-	params_t params = PARAMS_INIT;
+	va_list pr;
+	char *p, *star;
+	params_t par = PARAMS_INIT;
 
-	va_start(ap, format);
+	va_start(pr, format);
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	for (p = (char *)format; *p; p++)
 	{
-		init_params(&params, ap);
+		itp(&par, pr);
 		if (*p != '%')
 		{
 			sum += _putchar(*p);
@@ -27,21 +27,21 @@ int _printf(const char *format, ...)
 		}
 		start = p;
 		p++;
-		while (get_f(p, &params))
+		while (gf(p, &par))
 		{
 			p++;
 		}
-		p = gw(p, &params, ap);
-		p = gp(p, &params, ap);
-		if (gm(p, &params))
+		p = gw(p, &par, pr);
+		p = gp(p, &par, pr);
+		if (gm(p, &par))
 			p++;
-		if (!get_specifier(p))
+		if (!gs(p))
 			sum += pft(start, p,
-				params.l_m || params.h_m ? p - 1 : 0);
+				par.l_m || par.h_m ? p - 1 : 0);
 		else
-			sum += gpf(p, ap, &params);
+			sum += gpf(p, pr, &par);
 	}
 	_putchar(BUF_FLUSH);
-	va_end(ap);
+	va_end(pr);
 	return (sum);
 }
