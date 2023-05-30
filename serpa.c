@@ -42,86 +42,72 @@ return (NULL);
  * @z: the format string
  * Return: number of bytes
  ****************************************/
-int gpf(char *z, va_list ap, params_t *params)
+int gpf(char *z, va_list pr, params_t *par)
 {
-	int (*f)(va_list, params_t *) = get_specifier(s);
+	int (*u)(va_list, params_t *) = gs(z);
 
-	if (f)
-		return (f(ap, params));
+	if (u)
+		return (u(pr, par));
 	return (0);
 }
 /********************************
- * @s: format string
- * @params:parameters struct
+ * @z: format string
+ * @par: parameters struct
  * gf - finds flag function
  * Return: if flag was valid
  *******************************/
-int gf(char *s, params_t *params)
+int gf(char *z, params_t *par)
 {
-	int a = 0;
+int u = 0;
 
-	switch (*s)
-	{
-		case '+':
-			a = params->plus_f = 1;
-			break;
-		case ' ':
-			a = params->space_f = 1;
-			break;
-		case '#':
-			a = params->hashtag_f = 1;
-			break;
-		case '-':
-			a = params->minus_f = 1;
-			break;
-		case '0':
-			a = params->zero_f = 1;
-			break;
-	}
-	return (a);
+switch (*z)
+{
+case '-': u = par->minus_f = 1; break;
+case ' ': u = par->space_f = 1; break;
+case '+': u = par->plus_f = 1; break;
+case '0': u = par->zero_f = 1; break;
+case '#': u = par->hashtag_f = 1; break;
+}
+return (u);	
 }
 /*************************************
- * gm - getsmodifier function
- * @params: the parameters struct
- * @s: the format string
+ * gm - getmodifier function
+ * @par: parameters struct
+ * @z: the format string
  * Return: if modifier was valid
  ************************************/
-int gm(char *s, params_t *params)
+int gm(char *z, params_t *par)
 {
-	int m = 0;
-
-	switch (*s)
-	{
-	case 'h':
-		m = params->h_m = 1;
-		break;
-	case 'l':
-		m = params->l_m = 1;
-		break;
-	}
-	return (m);
+int u = 0;
+	
+switch (*z)
+{
+case 'h': u = par->h_m = 1; break;
+case 'l': u = par->l_m = 1; break;
+}
+return (u);
 }
 /***************************************************
- * @params: parameters struct
+ * @par: parameter struct
  * gw - gets width from format string
- * @ap: argument pointer
- * @s: format string
+ * @pr: argument pointer
+ * @z: format string
  * Return: new pointer
  ***************************************************/
-char *gw(char *s, params_t *params, va_list ap)
+char *gw(char *z, params_t *par, va_list pr)
 {
-	int r = 0;
+int u = 0;
 
-	if (*s == '*')
-	{
-		r = va_arg(ap, int);
-		s++;
-	}
-	else
-	{
-		while (_isdigit(*s))
-			r = r * 10 + (*s++ - '0');
-	}
-	params->w = r;
-	return (s);
+if (*z == '*')
+{
+u = va_arg(pr, int);
+z++;
+}
+else
+{
+while (_id(*z))
+u = u * 10 + (*z++ - '0');
+}
+params->w = u;
+return (z);
 }
