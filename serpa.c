@@ -54,6 +54,7 @@ int gpf(char *z, va_list pr, params_t *par)
  * gf - finds flag function
  * @z:  string
  * @par: parameters struct
+ *
  * Return: if flag was valid
  */
 int gf(char *z, params_t *par)
