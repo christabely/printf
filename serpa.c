@@ -1,49 +1,48 @@
 #include "main.h"
 /***************************************
- * @s: format string
- * get_specifier - finds the format of function
+ * @z: format string
+ * gs - finds the format of function
  * Return: number of bytes
  ***************************************/
-int (*get_specifier(char *s))(va_list ap, params_t *params)
+int (*gs(char *z))(va_list pr, params_t *par)
 {
-	specifier_t specifiers[] = {
-		
-		{"d", print_int},
-		{"i", print_int},
-		{"s", print_string},
-		{"r", print_rev},
-		{"b", print_binary},
-		{"S", print_S},
-		{"o", print_octal},
-		{"R", print_rot13},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"p", print_address},
-		{"%", print_percent},
-		{"c", print_char},
-		{"u", print_unsigned},
-		{NULL, NULL}
-	};
-	int i;
+specifier_t speci[] = {
 
-	for (i = 0; specifiers[i].specifier; i++)
-	{
-    		if (*s == specifiers[i].specifier[0])
-    		{
-        		return specifiers[i].f;
-    		}
-	}
-	
-	return (NULL);
+{"d", pi},
+{"i", pi},
+{"s", pst},
+{"r", pr},
+{"b", pb},
+{"S", p_S},
+{"o", po},
+{"R", pro},
+{"x", p_h},
+{"X", p_H},
+{"%", pp},
+{"p", p_a},
+{"c", pc},
+{"u", p_u},
+{NULL, NULL}
+};
+int u;
+
+for (u = 0; speci[u].speci; u++)
+{
+if (*z == speci[u].speci[0])
+{
+return (speci[u].f);
+}
+}	
+return (NULL);
 }
 /****************************************
  * gpf - finds format function
- * @ap: argument pointer
- * @params: the parameters struct
- * @s: the format string
+ * @pr: pointer argument
+ * @par: parameters struct
+ * @z: the format string
  * Return: number of bytes
  ****************************************/
-int gpf(char *s, va_list ap, params_t *params)
+int gpf(char *z, va_list ap, params_t *params)
 {
 	int (*f)(va_list, params_t *) = get_specifier(s);
 
