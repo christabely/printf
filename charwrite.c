@@ -16,6 +16,7 @@ int _puts(char *z)
 /**
  * _putchar - writes char c to stdout
  * @c: character to print
+ *
  * Return: On success 1
  * On error, -1 is returned, and error is set appropriately.
  */
