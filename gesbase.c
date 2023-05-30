@@ -27,7 +27,7 @@ tr = &buffer[49];
 *tr = '\0';
 
 do	{
-*--tr = array[n % bs];
+*--tr = array[h % bs];
 h /= bs;
 } while (h != 0);
 
@@ -47,12 +47,12 @@ unsigned long h;
 
 if (par->h_m)
 h = (unsigned long)va_arg(pr, unsigned long);
-else if (params->h_modifier)
+else if (par->h_m)
 h = (unsigned short int)va_arg(pr, unsigned int);
 else
 h = (unsigned int)va_arg(pr, unsigned int);
 par->unsign = 1;
-return (pn(con(l, 10, CON_UNSIGNED, par), par));
+return (pn(con(h, 10, CON_UNSIGNED, par), par));
 }
 /****************************
  * p_a - prints address
