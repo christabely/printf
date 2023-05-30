@@ -1,5 +1,12 @@
 #include "main.h"
-
+/**
+ * gp - gets precision from format string
+ * @z: format string
+ * @par: parameter
+ * @pr: argument pointer
+ *
+ * Return: new pointer
+ */
 char *gp(char *z, params_t *par, va_list pr)
 {
 int u = 0;
@@ -17,13 +24,5 @@ else
 while (_id(*z))
 u = u * 10 + (*z++ - '0');
 }
-params->p = u;
+par->p = u;
 return (z);
-}
-/************************************************************
- * gp - gets precision from format string
- * @z: format string
- * @pr: pointer argument 
- * @par: parameters struct 
- * Return: new pointer
- ************************************************************/
