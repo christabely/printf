@@ -45,8 +45,6 @@ typedef struct parameters
 	
 	unsigned int h_m : 1;
 	unsigned int l_m : 1;
-	
-	
 } params_t;
 /***********************************
  * struct specifier - Struct token
