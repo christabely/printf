@@ -2,7 +2,6 @@
 /**
  * _printf - prints anything
  * @format: the format string
- *
  * Return: number of chars printed
  */
 int _printf(const char *format, ...)
