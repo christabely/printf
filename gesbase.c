@@ -5,6 +5,7 @@
  * @bs: base
  * @fs: argument flags
  * @par: parameters struct
+ *
  * Return: string
  */
 char *con(long int b, int bs, int fs, params_t *par)
